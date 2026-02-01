@@ -58,6 +58,51 @@ jobs:
         command: pytest test_question1_symbols.py
         timeout: 10
         max-score: 2
+    - name: Q2 Basic
+      id: q2-basic
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Q2 Basic
+        setup-command: pip install pytest
+        command: pytest test_question2_basic.py
+        timeout: 10
+        max-score: 3
+    - name: Q2 Duplicates
+      id: q2-duplicates
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Q2 Duplicates
+        setup-command: pip install pytest
+        command: pytest test_question2_duplicates.py
+        timeout: 10
+        max-score: 2
+    - name: Q2 Invalid
+      id: q2-invalid
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Q2 Invalid
+        setup-command: pip install pytest
+        command: pytest test_question2_invalid.py
+        timeout: 10
+        max-score: 2
+    - name: Q2 Negative
+      id: q2-negative
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Q2 Negative
+        setup-command: pip install pytest
+        command: pytest test_question2_negative.py
+        timeout: 10
+        max-score: 2
+    - name: Q2 Single element
+      id: q2-single-element
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Q2 Single element
+        setup-command: pip install pytest
+        command: pytest test_question2_single.py
+        timeout: 10
+        max-score: 2
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
@@ -66,5 +111,10 @@ jobs:
         Q1-NO-VOWELS_RESULTS: "${{steps.q1-no-vowels.outputs.result}}"
         Q1-INVALID_RESULTS: "${{steps.q1-invalid.outputs.result}}"
         Q1-SYMBOLS_RESULTS: "${{steps.q1-symbols.outputs.result}}"
+        Q2-BASIC_RESULTS: "${{steps.q2-basic.outputs.result}}"
+        Q2-DUPLICATES_RESULTS: "${{steps.q2-duplicates.outputs.result}}"
+        Q2-INVALID_RESULTS: "${{steps.q2-invalid.outputs.result}}"
+        Q2-NEGATIVE_RESULTS: "${{steps.q2-negative.outputs.result}}"
+        Q2-SINGLE-ELEMENT_RESULTS: "${{steps.q2-single-element.outputs.result}}"
       with:
-        runners: q1-basic,q1-case,q1-no-vowels,q1-invalid,q1-symbols
+        runners: q1-basic,q1-case,q1-no-vowels,q1-invalid,q1-symbols,q2-basic,q2-duplicates,q2-invalid,q2-negative,q2-single-element
