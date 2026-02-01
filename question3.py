@@ -26,7 +26,21 @@ Error handling
 Invalid json file => return empty list []
 """
 
-
+import json
 def high_earners_by_department(filename, department, min_salary):
-    pass
+    try:
+        with open(filename) as f:
+            data = json.load(f)
+
+        filtered = filter(
+            lambda e: e.get("department") == department and e.get("salary", 0) >= min_salary,
+            data
+        )
+
+        return [
+            e["name"]
+            for e in sorted(filtered, key=lambda x: x["salary"], reverse=True)
+        ]
+    except Exception:
+        return []
 

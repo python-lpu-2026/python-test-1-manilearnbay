@@ -23,5 +23,7 @@ count_vowels(123c) -> 0
 """
 
 def count_vowels(text):
-    pass
+    if not isinstance(text, str):
+        return 0
+    return sum(1 for c in text.lower() if c in "aeiou")
 
