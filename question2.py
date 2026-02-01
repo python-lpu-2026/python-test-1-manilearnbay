@@ -19,6 +19,7 @@ second_highest([-1, -2, -3]) -> -2
 def second_highest(nums):
     try:
         unique = list(set(nums))
+        
         if len(unique) < 2:
             return None
         unique.sort(reverse=True)
