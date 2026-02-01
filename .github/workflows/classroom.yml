@@ -102,7 +102,7 @@ jobs:
         setup-command: pip install pytest
         command: pytest test_question2_single.py
         timeout: 10
-        max-score: 2
+        max-score: 1
     - name: Q3 Department filter
       id: q3-department-filter
       uses: classroom-resources/autograding-command-grader@v1
