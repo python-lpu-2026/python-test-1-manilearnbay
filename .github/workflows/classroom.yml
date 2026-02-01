@@ -19,7 +19,7 @@ jobs:
       with:
         test-name: Q1. Count Vowels in a String
         setup-command: pip install pytest
-        command: pytest test_q1_count_vowels.py
+        command: pytest test_question1.py
         timeout: 10
         max-score: 10
     - name: Q2. Find Second Highest Number
@@ -37,7 +37,7 @@ jobs:
       with:
         test-name: Q3. JSON Data Pipeline with Functional Programming
         setup-command: pip install pytest
-        command: pytest test_q3_json_pipeline.py
+        command: pytest test_question3.py
         timeout: 10
         max-score: 20
     - name: Autograding Reporter
